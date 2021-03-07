@@ -20,12 +20,8 @@ class MovieRemoteSource {
         'Content-Type': 'application/json',
       },
     );
-
-    print("Remote movies are ${response.body}");
     if (response.statusCode == 200) {
       return MovieResponseModel.fromJson(jsonDecode(response.body));
-      // return ((jsonDecode(response.body)) as List)
-      //     .map((e) => MovieModel.fromJson(e));
     } else {
       throw ServerException();
     }
