@@ -1,12 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter_clean_arhitecture/core/error/exceptions.dart';
 import 'package:flutter_clean_arhitecture/feature/movie/data/model/movie_model.dart';
-import 'package:flutter_clean_arhitecture/feature/movie/domain/entities/movie.dart';
 
 class MovieLocalSource {
-  List<MovieModel> movies = List<Movie>.empty();
+  List<MovieModel> movies = List<MovieModel>.empty();
 
-  void cacheMovie(List<MovieModel> movies) {
-    movies.addAll(movies);
+  void cacheMovie(List<MovieModel> remoteMovies) {
+    movies = List<MovieModel>.from(remoteMovies);
   }
 
   Future<List<MovieModel>> loadCachedMovies() {

@@ -11,30 +11,33 @@ class MovieWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-        crossAxisCount: 2,
-        childAspectRatio: (2 / 1),
-        children: movies
-            .map((data) =>
-            GestureDetector(
-                onTap: () {
-                  onMovieClick(data.id);
-                },
-                child: Container(
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-                    child: Center(
-                      child: Wrap(
-                        children: [
-                          Image.network(
-                            "https://image.tmdb.org/${data.posterPath}",
-                            height: 54,
-                            width: 54,
+    return Container(
+        child: GridView.count(
+            crossAxisCount: 2,
+            childAspectRatio: (2 / 1),
+            children: movies
+                .map((data) => GestureDetector(
+                    onTap: () {
+                      onMovieClick(data.id);
+                    },
+                    child: Container(
+                        margin:
+                            EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                        child: Center(
+                          child: Wrap(
+                            children: [
+                              Container(
+                                  child: Image.network(
+                                "https://image.tmdb.org/${data.posterPath}",
+                                height: 10,
+                                width: 10,
+                              )),
+                              Container(
+                                  alignment: Alignment.center,
+                                  child: Text(data.title ?? "No title")),
+                            ],
                           ),
-                          Text(data.title),
-                          Text(data.overview)
-                        ],
-                      ),
-                    ))))
-            .toList());
+                        ))))
+                .toList()));
   }
 }

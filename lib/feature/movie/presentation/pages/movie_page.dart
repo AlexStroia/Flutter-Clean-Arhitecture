@@ -32,10 +32,7 @@ class _MoviePage extends State<MoviePage> {
       child: Container(
           padding: EdgeInsets.all(20),
           child: Center(
-            child: Column(children: [
-              SizedBox(
-                height: 10,
-              ),
+            child:
               BlocBuilder<MoviesBloc, MoviesState>(
                 builder: (context, state) {
                   if (state is LoadingState) {
@@ -43,21 +40,17 @@ class _MoviePage extends State<MoviePage> {
                   } else if (state is LoadedState) {
                     return MovieWidget(state.movies, (id) => {});
                   } else if (state is EmptyState) {
-                    fetchMovies();
+                    fetchMovies(context);
                     return EmptyWidget();
                   }
                   return EmptyWidget();
                 },
               ),
-              SizedBox(
-                height: 10,
-              )
-            ]),
           )),
     );
   }
 
-  void fetchMovies() {
+  void fetchMovies(BuildContext context) {
     BlocProvider.of<MoviesBloc>(context).add(GetMoviesEvent());
   }
 }
