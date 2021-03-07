@@ -5,14 +5,12 @@ import 'package:flutter_clean_arhitecture/feature/movie/data/repository/movie_re
 import 'package:flutter_clean_arhitecture/feature/movie/domain/entities/movie.dart';
 
 class FetchMoviesUseCase extends UseCase<List<Movie>, NoParams> {
-
   final MovieRepository repository;
 
   FetchMoviesUseCase(this.repository);
 
   @override
-  Future<Either<Failure, List<Movie>>> call(NoParams params) {
-    throw UnimplementedError();
+  Future<Either<Failure, List<Movie>>> call(NoParams params) async {
+    return await repository.fetchMovies();
   }
-
 }
