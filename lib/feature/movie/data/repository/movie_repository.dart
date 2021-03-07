@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dartz/dartz.dart';
 import 'package:flutter_clean_arhitecture/core/error/exceptions.dart';
 import 'package:flutter_clean_arhitecture/core/error/failures.dart';
@@ -7,7 +5,6 @@ import 'package:flutter_clean_arhitecture/core/network/network_info.dart';
 import 'package:flutter_clean_arhitecture/feature/movie/data/datasource/movie_local_source.dart';
 import 'package:flutter_clean_arhitecture/feature/movie/data/datasource/movie_remote_source.dart';
 import 'package:flutter_clean_arhitecture/feature/movie/data/model/movie_model.dart';
-import 'package:flutter_clean_arhitecture/feature/movie/data/model/movie_response_model.dart';
 import 'package:flutter_clean_arhitecture/feature/movie/domain/entities/movie.dart';
 
 class MovieRepository {
