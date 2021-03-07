@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter_clean_arhitecture/core/error/exceptions.dart';
 import 'package:flutter_clean_arhitecture/feature/movie/data/model/movie_model.dart';
 import 'package:flutter_clean_arhitecture/feature/movie/domain/entities/movie.dart';

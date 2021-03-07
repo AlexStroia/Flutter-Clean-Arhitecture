@@ -11,10 +11,9 @@ class MovieRepository {
   final MovieLocalSource localSource;
   final NetworkInfo networkInfo;
 
-  MovieRepository(this.remoteSource,this.localSource, this.networkInfo);
+  MovieRepository(this.remoteSource, this.localSource, this.networkInfo);
 
-  Future<Either<Failure, List<Movie>>> fetchMovies(
-      ) async {
+  Future<Either<Failure, List<Movie>>> fetchMovies() async {
     if (await networkInfo.isConnected) {
       try {
         final remoteMovies = await remoteSource.fetchMovies();
